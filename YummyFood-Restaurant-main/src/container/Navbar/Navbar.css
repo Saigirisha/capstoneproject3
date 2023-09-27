@@ -1,0 +1,225 @@
+.app__navigation {
+    position: fixed;
+    top: 0;
+    background: var(--dark);
+    z-index: 999;
+    width: 100%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.app__nav-logo {
+    display: flex;
+    justify-content: flex-start;
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--white);
+    letter-spacing: -2px;
+    font-family: var(--mainA);
+    text-decoration: none;
+}
+
+.app__nav-links {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    list-style: none;
+}
+
+.p_opensans {
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    transition: 0.2s;
+}
+
+.p_opensans.active a {
+    color: var(--orange);
+}
+
+.p_opensans.active .app__point-link {
+    opacity: 1;
+    visibility: visible;
+}
+
+.app__point-link {
+    position: absolute;
+    top: -2px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--orange);
+    opacity: 0;
+    visibility: hidden;
+}
+
+.p_opensans:hover .app__point-link {
+    opacity: 1;
+    visibility: visible;
+}
+
+.p_opensans:hover a {
+    color: var(--orange);
+}
+
+.p_opensans a {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--dark__red);
+    text-decoration: none;
+}
+
+.app__nav-favourites {
+    display: flex;
+    gap: .75rem;
+}
+
+.app__nav-favourites button:hover {
+    color: var(--orange);
+    border-color: var(--orange);
+}
+
+.app__nav-favourites button.active {
+    color: var(--dark__red);
+    border-color: var(--dark__red);
+}
+
+.app__nav-favourites button {
+    position: relative;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--gris);
+    background: transparent;
+    border: 0;
+    outline: none;
+    cursor: pointer;
+    border-bottom: 2px solid var(--gris);
+    transition: .2s;
+}
+
+@media screen and (width >= 2000px) {
+    .app__navigation {
+        padding: 2rem 4rem;
+    }
+
+    .app__nav-logo {
+        font-size: 30px;
+    }
+
+    .p_opensans a {
+        font-size: 26px;
+    }
+
+    .app__nav-favourites button {
+        font-size: 26px;
+    }
+}
+
+@media screen and (width >= 876px) {
+    .app__nav-phone {
+        display: none;
+    }
+}
+
+@media screen and (width <= 876px) {
+    .app__navigation {
+        width: 100%;
+        top: 0;
+        padding: 1rem .75rem;
+        border-radius: 0;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+    }
+
+    .app__nav-logo {
+        font-size: 22px;
+        font-weight: 500;
+    }
+
+    .app__nav-links {
+        display: none;
+    }
+
+    .open__overlay {
+        transform: translateY(4px);
+        display: grid;
+        place-items: center;
+        cursor: pointer;
+    }
+
+    .app__small-nav-overlay {
+        position: fixed;
+        background-color: var(--dark);
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 3;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        overflow: hidden;
+        animation: slide-bottom .3s linear;
+    }
+
+    .overlay__close {
+        cursor: pointer;
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+    }
+
+    .app__small-nav-links {
+        display: flex;
+        flex-direction: column;
+        gap: 1.25rem;
+    }
+
+    .app__small-nav-links .p_opensans a {
+        position: relative;
+        font-size: 26px;
+        line-height: 50px;
+        transition: all .3s linear;
+    }
+
+    .app__small-nav-links .p_opensans a::before,
+    .app__small-nav-links .p_opensans a::after {
+        position: absolute;
+        bottom: 8px;
+        content: '';
+        width: 0;
+        height: 2px;
+        background: var(--orange);
+        transition: all .3s ease-in-out;
+    }
+
+    .app__small-nav-links .p_opensans a::before {
+        transform-origin: left;
+        left: -60px;
+    }
+
+    .app__small-nav-links .p_opensans a::after {
+        transform-origin: left;
+        right: -60px;
+    }
+
+    .app__small-nav-links .p_opensans.active a {
+        font-size: 45px;
+    }
+
+    .app__small-nav-links .p_opensans.active a::before,
+    .app__small-nav-links .p_opensans.active a::after {
+        width: 55px;
+    }
+}

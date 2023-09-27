@@ -1,0 +1,154 @@
+.app__favorites {
+    position: relative;
+    padding-top: 100px;
+    width: 100%;
+    min-height: 100vh;
+    background: var(--dark);
+    max-width: 2000px;
+}
+
+.just-empty {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.empty__fav {
+    color: var(--gris);
+    font-size: 150px;
+    margin-top: 5rem;
+    margin-bottom: 1rem;
+}
+
+.empty__fav + h1 {
+    color: var(--gris);
+    font-weight: 900;
+    font-size: 30px;
+}
+
+.app__fav {
+    width: 50%;
+    margin: auto;
+    display: flex;
+    gap: 2.5rem;
+    margin-bottom: 2rem;
+}
+
+.app__fav-img {
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: .25rem;
+    width: 260px;
+    aspect-ratio: 1.5;
+}
+
+.app__fav-img img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+.app__fav-small-img {
+    cursor: pointer;
+    width: calc(260px/4);
+    aspect-ratio: 1;
+    padding: 0 2px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.app__fav-small-img img {
+    object-fit: fill;
+    width: 100%;
+    height: 100%;
+}
+
+.app__fav-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.app__fav-info h1 {
+    text-transform: capitalize;
+    color: var(--white);
+}
+
+.app__fav-info p {
+    color: var(--gris);
+}
+
+.app__fav-btns {
+    margin-top: auto;
+    margin-bottom: 1rem;
+    display: flex;
+    gap: 5px;
+}
+.app__fav-btns button {
+    cursor: pointer;
+    background: var(--dark__red);
+    padding: .25rem 1rem;
+    border-radius: 10px;
+    outline: none;
+    border: 0;
+    color: var(--white);
+    font-weight: 600;
+    font-size: 14px;
+    transition: .2s;
+}
+
+.app__fav-btns button:hover {
+    background: var(--white);
+    color: var(--dark__red);
+}
+
+@media screen and (width <= 1000px) {
+    .app__fav {
+        width: 80%;
+    }
+}
+
+@media screen and (width <= 700px) {
+    .app__fav {
+        width: 100%;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        gap: .75rem;
+    }
+
+    .app__fav-img {
+        width: 320px;
+    }
+
+    .app__fav-info {
+        width: 320px;
+    }
+
+    .app__favorites {
+        gap: 1.5rem;
+    }
+
+    .app__fav-btns {
+        margin-top: 1rem;
+    }
+
+    .empty__fav {
+        font-size: 120px;
+    }
+
+    .empty__fav + h1 {
+        font-size: 26px;
+    }
+}
+
+@media screen and (width <= 600px) {
+    .just-empty {
+        width: 90%;
+        margin: auto;
+    }
+}
